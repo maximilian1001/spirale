@@ -1,0 +1,53 @@
+import numpy as np
+
+array = [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 14, 15],
+[16, 17, 18, 19, 20]]
+
+grenzelinks = 0
+grenzerechts = np.shape(array)[1]-1
+grenzeoben = 0
+grenzeunten = np.shape(array)[0]-1
+
+zeile = 0
+spalte = 0
+
+while((grenzelinks != grenzerechts) & (grenzeoben != grenzeunten)):
+
+    #links nach rechts
+    print(">")
+    while(spalte <= grenzerechts):
+        print(array[zeile][spalte])
+        spalte = spalte +1
+    grenzeoben = grenzeoben +1
+    zeile = zeile +1
+    spalte = spalte -1
+
+    #oben nach unten
+    print("v")
+    while(zeile <= grenzeunten):
+        print(array[zeile][spalte])
+        zeile = zeile +1
+    grenzerechts = grenzerechts -1
+    zeile = zeile -1
+    spalte = spalte -1
+
+    #rechts nach links
+    print("<")
+    while(spalte >= grenzelinks):
+        print(array[zeile][spalte])
+        spalte = spalte -1
+    grenzeunten = grenzeunten -1
+    zeile = zeile -1
+    spalte = spalte +1
+
+    #unten nach oben
+    print("^")
+    while(zeile >= grenzeoben):
+        print(array[zeile][spalte])
+        zeile = zeile -1
+    grenzelinks = grenzelinks +1
+    zeile = zeile +1
+    spalte = spalte +1
+    
+
+
